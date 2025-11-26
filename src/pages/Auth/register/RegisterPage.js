@@ -35,40 +35,39 @@ const RegisterPage = () => {
     mode: "onBlur",
   });
 
-  const onSubmit = async (values) => {
-    try {
-      const payload = {
-        name: values.name,
-        email: values.email,
-        password: values.password,
-        tenantName: values.tenantName,
-        tenantSlug: values.tenantSlug,
-        tenantEmail: values.tenantEmail,
-        phone: values.phone,
-        address: values.address,
-      };
+const onSubmit = async (values) => {
+  try {
+    const payload = {
+      name: values.name,
+      email: values.email,
+      password: values.password,
+      tenantName: values.tenantName,
+      tenantSlug: values.tenantSlug,
+      tenantEmail: values.tenantEmail,
+      phone: values.phone,
+      address: values.address,
+    };
 
-      // const res = await registerRequest(payload);
+    await registerRequest(payload); 
 
-  
-      toast.success("Qeydiyyat uğurla tamamlandı! 🎉", {
-        toastId: "register-success",
-      });
+    toast.success("Qeydiyyat uğurla tamamlandı! 🎉", {
+      toastId: "register-success",
+    });
 
-      navigate("/login");
-    } catch (err) {
-      const msg =
-        err?.response?.data?.message ||
-        err?.response?.data?.error ||
-        err.message ||
-        "Qeydiyyat alınmadı";
+    navigate("/login");
+  } catch (err) {
+    const msg =
+      err?.response?.data?.message ||
+      err?.response?.data?.error ||
+      err.message ||
+      "Qeydiyyat alınmadı";
 
-  
-      toast.error(msg, {
-        toastId: "register-error",
-      });
-    }
-  };
+    toast.error(msg, {
+      toastId: "register-error",
+    });
+  }
+};
+
 
   return (
     <div className={styles.container}>
