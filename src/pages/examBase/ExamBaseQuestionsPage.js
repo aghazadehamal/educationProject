@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
+
 import { useParams, useNavigate } from "react-router-dom";
 import PageHeader from "../../components/common/pageheader/PageHeader";
 import { FiArrowLeft, FiTrash2 } from "react-icons/fi";
@@ -32,12 +33,15 @@ const ExamBaseQuestionsPage = () => {
   const [isUploading, setIsUploading] = useState(false);
   const [isReplacing, setIsReplacing] = useState(false);
 
-  const fetchQuestions = async () => {
+  const fetchQuestions = useCallback(
+  async (overridePageNo) => {
     setLoading(true);
     try {
+      const currentPage = overridePageNo ?? pageNo;
+
       const data = await getExamBaseQuestions(examBaseId, {
         text: searchText,
-        pageNo,
+        pageNo: currentPage,
         pageSize,
       });
 
@@ -48,17 +52,22 @@ const ExamBaseQuestionsPage = () => {
     } finally {
       setLoading(false);
     }
-  };
+  },
+  [examBaseId, searchText, pageNo, pageSize]
+);
 
-  useEffect(() => {
-    fetchQuestions();
-  }, [pageNo]);
+
+ useEffect(() => {
+  fetchQuestions();
+}, [fetchQuestions]);
+
 
   const handleSearch = (e) => {
-    e.preventDefault();
-    setPageNo(0);
-    fetchQuestions();
-  };
+  e.preventDefault();
+  setPageNo(0);
+  fetchQuestions(0);
+};
+
 
   const openDeleteModal = (question) => {
     setDeletingQuestion(question);
@@ -261,13 +270,13 @@ const ExamBaseQuestionsPage = () => {
       )}
 
       {isDeleteModalOpen && (
-        <ConfirmDeleteModal
-          isOpen={isDeleteModalOpen}
-          onClose={closeDeleteModal}
-          onConfirm={handleConfirmDelete}
-          title="Sual silinsin?"
-          description="Bu sualı silmək istədiyinizə əminsiniz?"
-        />
+       <ConfirmDeleteModal
+  isOpen={isDeleteModalOpen}
+  onCancel={closeDeleteModal}
+  onConfirm={handleConfirmDelete}
+  message="Bu sualı silmək istədiyinizə əminsiniz?"
+/>
+
       )}
     </div>
   );

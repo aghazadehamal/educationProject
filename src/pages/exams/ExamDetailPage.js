@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
+
 import { useParams, useNavigate } from "react-router-dom";
 import PageHeader from "../../components/common/pageheader/PageHeader";
 import { FiArrowLeft, FiCalendar, FiBookOpen, FiUser } from "react-icons/fi";
@@ -16,26 +17,28 @@ const ExamDetailPage = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const fetchExam = async () => {
-    setLoading(true);
-    setError("");
-    try {
-      const data = await getExamById(examId);
-      setExam(data.exam || null);
-      setExamBase(data.examBase || null);
-      setStudents(data.students || []);
-    } catch (e) {
-      setError("İmtahan məlumatlarını yükləmək mümkün olmadı.");
-    } finally {
-      setLoading(false);
-    }
-  };
+ const fetchExam = useCallback(async () => {
+  setLoading(true);
+  setError("");
+  try {
+    const data = await getExamById(examId);
+    setExam(data.exam || null);
+    setExamBase(data.examBase || null);
+    setStudents(data.students || []);
+  } catch (e) {
+    setError("İmtahan məlumatlarını yükləmək mümkün olmadı.");
+  } finally {
+    setLoading(false);
+  }
+}, [examId]);
 
-  useEffect(() => {
-    if (!Number.isNaN(examId)) {
-      fetchExam();
-    }
-  }, [examId]);
+useEffect(() => {
+  if (!Number.isNaN(examId)) {
+    fetchExam();
+  }
+}, [examId, fetchExam]);
+
+
 
   const renderStatusBadge = (status) => {
     if (!status) return "-";
