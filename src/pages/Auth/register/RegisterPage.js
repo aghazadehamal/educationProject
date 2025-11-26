@@ -48,7 +48,7 @@ const RegisterPage = () => {
         address: values.address,
       };
 
-      const res = await registerRequest(payload);
+      // const res = await registerRequest(payload);
 
   
       toast.success("Qeydiyyat uğurla tamamlandı! 🎉", {

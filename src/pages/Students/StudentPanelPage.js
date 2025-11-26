@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
+
 import PageHeader from "../../components/common/pageheader/PageHeader";
 import { getStudents, createStudent, updateStudent, deleteStudent, getStudentDetail } from "../../services/studentsApi";
 import StudentFormModal from "./studentFormModal/StudentFormModal";
@@ -47,7 +48,8 @@ const StudentPanelPage = () => {
   const [isSubjectsModalOpen, setIsSubjectsModalOpen] = useState(false);
   const [selectedStudent, setSelectedStudent] = useState(null);
 
-  const fetchStudents = async (overridePageNo) => {
+  const fetchStudents = useCallback(
+  async (overridePageNo) => {
     try {
       setLoading(true);
       setError("");
@@ -74,18 +76,26 @@ const StudentPanelPage = () => {
       setTotalPages(data.totalPages || 0);
     } catch (err) {
       console.error("FETCH STUDENTS ERROR:", err);
-      const msg = err?.response?.data?.message || err?.response?.data?.error || err.message || "Tələbələr yüklənərkən xəta baş verdi";
+      const msg =
+        err?.response?.data?.message ||
+        err?.response?.data?.error ||
+        err.message ||
+        "Tələbələr yüklənərkən xəta baş verdi";
 
       setError(msg);
       toast.error(msg, { toastId: "students-load-error" });
     } finally {
       setLoading(false);
     }
-  };
+  },
+  [pageNo, pageSize, filters] 
+);
 
-  useEffect(() => {
-    fetchStudents();
-  }, [pageNo]);
+
+ useEffect(() => {
+  fetchStudents();
+}, [fetchStudents]);
+
 
   const handleFilterChange = (e) => {
     const { name, value } = e.target;
