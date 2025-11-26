@@ -1,0 +1,223 @@
+.learn-about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+  
+  }
+
+  .about-instructorResponsiv {
+    display: none;
+  }
+  
+  .learn-about-header {
+    text-align: center;
+  }
+  
+  .learn-about-content {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 90px;
+    height: 537px;
+    background-color: #1F203F;
+  }
+  
+  .learn-about-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    padding: 20px 0;
+    width: 552px;
+    height: 70px;
+    border-radius: 24px;
+  }
+  
+  .about-instructor{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+   
+  }
+  
+  
+  .aboutphoto {
+    width: 456px;
+    height: 418px;
+    
+    margin-top: 20px;
+    border-radius: 20px;
+  }
+  
+  
+  .info-item p:first-of-type {
+    
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  }
+  
+  
+  .learn-about-three {
+    text-align: left;
+    
+  }
+  
+  .about-item {
+   
+   
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 212px;
+    height: 27px;
+    text-align: left;
+   
+  }
+  
+  .containerİnfoİtem {
+    margin-left: 10px;
+  }
+  
+  .info-item img.info-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .learn-about-header p {
+    width: 700px;
+  }
+  
+  .learn-about-two {
+    width: 544px;
+    height: 385px;
+    border-radius: 16px;
+    margin-left: 124px;
+
+   
+  }
+  
+  .learn-about-two span,
+  .learn-about-two p {
+    color: black;
+  }
+  
+  .learn-about-two span {
+    font-size: 34px;
+    line-height: 51px;
+    font-weight: 700;
+  }
+  
+  .learn-about-two p {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+   
+  }
+  
+  @media (max-width: 768px) {
+    .learn-about-info {
+      grid-template-columns: 1fr;
+      width: auto;
+     
+    }
+
+    .about-instructorResponsiv {
+     display: contents;
+     display: flex;
+     justify-content: center;
+    }
+
+    .about-instructorResponsiv img {
+     width: 85%;
+     height: auto;
+     margin-top: 0;
+     margin-bottom: 30px;
+     }
+  
+    .info-item {
+      width: auto;
+      height: auto;
+    }
+  
+    .learn-about-header p,
+    .learn-about-two {
+      width: 90%;
+    }
+  
+    .learn-about-two span {
+      font-size: 24px;
+      line-height: 36px;
+    }
+  
+    .learn-about-two p {
+      font-size: 14px;
+      line-height: 21px;
+    }
+  
+    .learn-about-three {
+     width: 100%;
+    }
+    .learn-about-two {
+        margin-left: 0px;
+    }
+  
+    
+  
+    .about-instructor img {
+      order: 2;
+      width: 100%;
+      height: auto;
+      margin-top: 20px;
+      display: none;
+    }
+
+    .learn-about-content {
+        height: 593px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .learn-about-content {
+      height: 700px;
+  }
+    
+  }
+
+  @media (min-width: 769px) and (max-width: 1140px) {
+    .about-instructor img {
+      
+      display: none;
+    }
+    
+  }
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .learn-about-info {
+      grid-template-columns: repeat(2, 1fr);
+      width: 90%;
+    }
+  
+    .learn-about-header p,
+    .learn-about-two {
+      width: 80%;
+    }
+  
+    .learn-about-two span {
+      font-size: 28px;
+    }
+  
+    .learn-about-two p {
+      font-size: 15px;
+    }
+  
+    .teacherPhoto {
+      width: 352px;
+      height: 397px;
+      margin-bottom: 20px; 
+    }
+    
+  }
+  

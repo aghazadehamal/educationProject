@@ -1,0 +1,193 @@
+
+
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 50px 0 60px;
+ 
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.card {
+  width: 520px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 36px 42px 32px;
+  border: 1px solid #bcbcc3;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.logo {
+  width: 220px;
+  display: block;
+  margin: 0 auto 20px auto;
+}
+
+.title {
+  font-size: 28px;
+  text-align: center;
+  font-weight: 700;
+  color: #1d1d1f;
+  margin-bottom: 28px;
+}
+
+
+
+.form {
+  width: 100%;
+}
+
+.formGroup {
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+}
+
+
+.input {
+  display: block;
+  width: 100%;
+  padding: 16px 18px;
+  font-size: 15px;
+  border-radius: 12px;
+  border: 1px solid #bcbcc3;
+  color: #110f0f;
+  background: #ffffff;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.input::placeholder {
+  color: #9ca3af;
+}
+
+.input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15);
+  outline: none;
+}
+
+
+
+.phoneContainer {
+  display: flex;
+  width: 100%;
+  margin-top: 6px;
+}
+
+.phonePrefix {
+  width: 90px;
+  height: 54px;
+  border: 1px solid #d1d5db;
+  border-radius: 12px 0 0 12px;
+  background: #f9f9f9;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+.phoneInput {
+  flex: 1;
+  height: 54px;
+  border: 1px solid #d1d5db;
+  border-left: none;
+  border-radius: 0 12px 12px 0;
+  padding: 0 16px;
+  outline: none;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.phoneInput::placeholder {
+  color: #9ca3af;
+}
+
+.phoneInput:focus {
+  border-color: #3b82f6;
+}
+
+
+
+.error {
+  color: #ef4444;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+
+
+.submitBtn {
+  width: 100%;
+  margin-top: 16px;
+  padding: 15px 0;
+  background: rgba(59, 130, 246, 1);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.18s ease;
+}
+
+.submitBtn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.3);
+}
+
+.submitBtn:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+
+
+
+.loginText {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 15px;
+  color: #4b5563;
+}
+
+.loginLink {
+  color: rgba(59, 130, 246, 1);
+  font-weight: 600;
+  margin-left: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.loginLink:hover {
+  text-decoration: underline;
+}
+
+
+
+@media (max-width: 480px) {
+  .card {
+    width: 100%;
+    max-width: 430px;
+    padding: 26px 20px 28px;
+  }
+
+  .input {
+    padding: 12px 14px;
+  }
+
+  .submitBtn {
+    padding: 13px;
+  }
+}

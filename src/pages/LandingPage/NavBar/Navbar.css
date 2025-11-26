@@ -1,0 +1,191 @@
+.customNavbar {
+  display: flex;
+  
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+}
+
+
+
+.logoNavBar {
+  width: 218px;
+  height: 108px;
+}
+
+.customNavLink {
+  margin: 30px;
+  text-decoration: none;
+  color: black;
+}
+
+.customButtons {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ text-align: center;
+ padding-right: 10px;
+}
+
+.customBtn {
+  padding: 10px 20px;
+  margin-left: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.customLogin {
+  color: rgba(59, 130, 246, 1);
+  border-radius: 8px;
+  height: 40px;
+  font-size: 16px;
+  background-color: white;
+}
+
+.customRegister {
+  background-color: rgba(59, 130, 246, 1);
+  color: white;
+  border-radius: 12px;
+  width: 158px;
+  height: 40px;
+}
+
+.ToggleButton {
+  width: 50px;
+  height: 50px;
+  border: none;
+  color: rgba(59, 130, 246, 1);
+  font-size: 33px;
+  cursor: pointer;
+  background-color: white;
+}
+
+.customRegister:hover {
+  background-color: rgba(59, 130, 246, 1);
+}
+
+
+.navBar-enter {
+  transform: translateY(-100%);
+}
+
+.navBar-enter-active {
+  transform: translateY(0);
+  transition: transform 300ms ease-in-out;
+}
+
+.navBar-exit {
+  transform: translateY(0);
+}
+
+.navBar-exit-active {
+  transform: translateY(-100%);
+  transition: transform 300ms ease-in-out;
+}
+
+
+
+
+
+
+@media (max-width: 768px) {
+  
+.customNavbar {
+  justify-content: space-around;
+}
+
+  .customNavLink {
+    margin: 10px;
+  }
+
+ 
+
+  .customNavnav {
+    font-size: 12px;
+    margin-top: 17px;
+    display: grid;
+    text-align: left;
+    position: absolute;
+    background-color: #fff;
+    width: 100%;
+    height: 250px;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+  }
+
+ 
+
+  .customNav {
+   
+    display: none;
+  }
+  .avatarAdmin {
+    margin-top: 10px;
+  }
+  .logoNavBar {
+    display: none;
+  }
+
+  .favlogologo  {
+  width: 190px;
+  height: 90px;
+  }
+
+  
+  
+}
+
+@media (min-width: 769px) and (max-width: 1111px) {
+  .customNavbar {
+    padding: 15px;
+  }
+
+  .customNavLink,
+  .customBtn {
+    margin: 15px 10px;
+  }
+
+ 
+
+  .customNavbar {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .customNav {
+    margin-top: 10px;
+  }
+  .ToggleButton {
+    display: none;
+  }
+  .favlogologo  {
+    display: none;
+  }
+}
+
+@media (min-width: 1111px){
+ 
+  .ToggleButton {
+    display: none;
+  }
+
+  .favlogologo  {
+    display: none;
+  }
+
+ 
+}
+
+@media (max-width: 769px){
+ 
+  
+
+ .favlogologo  {
+  width: 110px;
+  height: 50px;
+  }
+
+ 
+}

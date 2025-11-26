@@ -1,0 +1,137 @@
+.uniqueCampaignSection {
+  text-align: center;
+  margin: 20px;
+  margin-top: 90px;
+  color: #1f203f;
+}
+
+.uniqueCampaignButton {
+  padding: 10px 20px;
+  background-color: rgba(59, 130, 246, 1);
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  border-radius: 8px;
+  width: 259px;
+  height: 54px;
+  font-size: 20px;
+}
+
+.uniqueCampaignButton:hover {
+  background-color: rgba(59, 130, 246, 1);
+}
+
+.uniqueCountdown {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  color: black;
+}
+
+.containerSpanCountDown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+ margin-top: 15px;
+}
+.containerSpanCountDown img {
+  width: 24px;
+  height: 24px;
+}
+
+.uniqueTime {
+  margin: 0 10px;
+}
+
+.uniquePlayIcon {
+  position: absolute;
+  font-size: 30px;
+}
+
+.uniqueCampaignSectionp {
+  font-size: 64px;
+  width: 60%;
+  margin: auto;
+  color: black;
+  line-height: 96px;
+  font-weight: 800;
+  color: #1f203f;
+}
+
+.uniqueCampaignSectionpTwo {
+  color: #1f203f;
+  width: 45%;
+  margin: auto;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.containerSpanCountDown span {
+  
+  font-size: 18px;
+  line-height: 27px;
+  
+  color: rgba(59, 130, 246, 1);
+  
+}
+
+@media (max-width: 768px) {
+  .uniqueCampaignSectionp {
+    font-size: 32px;
+    width: 90%;
+    line-height: 48px;
+  }
+
+  .containerSpanCountDown span {
+    color: rgba(59, 130, 246, 1);
+    font-size: 10px;
+  }
+
+  .uniqueCampaignButton {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 10px;
+    height: auto;
+  }
+
+  .uniqueCountdown {
+    flex-direction: column;
+  }
+
+  .uniqueTime {
+    margin: 10px 0;
+  }
+  
+  .uniqueCampaignSectionpTwo {
+    width: 80%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .uniqueCampaignSectionp{
+    font-size: 48px;
+    width: 80%;
+    line-height: 72px;
+  }
+
+  .uniqueCampaignButton {
+    width: 70%;
+    padding: 10px 15px;
+    font-size: 18px;
+  }
+
+  .uniqueCountdown {
+    flex-direction: row;
+  }
+
+  .uniqueTime {
+    margin: 0 5px;
+  }
+}

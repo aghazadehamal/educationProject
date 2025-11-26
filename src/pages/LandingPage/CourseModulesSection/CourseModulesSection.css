@@ -1,0 +1,133 @@
+.customCourseModulesSection {
+  padding: 20px;
+
+  border-radius: 8px;
+
+  margin: 20px auto;
+  max-width: 1128px;
+  text-align: center;
+  margin-top: 90px;
+}
+
+.customAccordion {
+  margin: 10px 0;
+
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.customAccordionHeader {
+  cursor: pointer;
+  padding: 15px 20px;
+  background-color: #f3f4f8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 30px;
+  font-size: 20px;
+  font-weight: 500;
+  border-radius: 12px;
+  height: 80px;
+}
+
+.customAccordionContent {
+  padding: 15px 20px;
+  background-color: #ffffff;
+  border-top: 1px solid #ddd;
+}
+
+.customAccordionContent p {
+  text-align: left;
+  margin: 0;
+  color: black;
+}
+
+.customRegisterButton {
+  display: block;
+  width: 363px;
+  height: 54px;
+  padding: 10px 0;
+  background-color: rgba(59, 130, 246, 1);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+
+  border-radius: 12px;
+  line-height: 30px;
+}
+
+.customRegisterButton:hover {
+  background-color: rgba(59, 130, 246, 1);
+}
+
+.customCourseModulesSection span {
+  color: #1f203f;
+}
+
+.customOpen {
+  background-color: rgba(59, 130, 246, 1) !important;
+  border-radius: 16px;
+  border: solid #bcbcc3;
+}
+
+.customOpen .customAccordionHeader {
+  background-color: rgba(59, 130, 246, 1);
+}
+
+.spanFirst {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 60px;
+}
+
+.customRegisterButtonDiv {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .customCourseModulesSection {
+    padding: 20px;
+    margin: 10px auto;
+    margin-top: 50px;
+  }
+
+  .customAccordionHeader {
+    padding: 10px 15px;
+    font-size: 18px;
+    line-height: 25px;
+    height: auto;
+    text-align: left;
+  }
+
+  .customRegisterButton {
+    width: auto;
+    margin: 20px 10px;
+    padding: 10px;
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .customCourseModulesSection {
+    padding: 15px;
+    margin-top: 70px;
+  }
+
+  .customAccordionHeader {
+    padding: 12px 18px;
+    font-size: 19px;
+    line-height: 28px;
+  }
+
+  .customRegisterButton {
+    width: 80%;
+    margin: 20px auto;
+    font-size: 19px;
+  }
+}

@@ -1,0 +1,144 @@
+.footer {
+  background-color: #1f203f;
+  color: #ffffff;
+  padding: 32px 16px 24px;
+  font-size: 14px;
+  margin-top: 40px;
+}
+
+
+.footer-nav {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.footer-nav .nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 24px;
+}
+
+.footer-nav .nav-list li {
+  display: inline-flex;
+}
+
+.footer-nav .nav-list li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 14px;
+}
+
+.customNavLink:hover,
+.footer-nav .nav-list li a:hover {
+  color: rgba(59, 130, 246, 1);
+}
+
+
+.footer-divider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  max-width: 1100px;
+  margin: 24px auto 0;
+}
+
+
+.footer-content {
+  max-width: 1100px;
+  margin: 24px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.footer-content p {
+  margin: 0;
+  color: white;
+  font-size: 14px;
+  line-height: 1.6;
+  flex: 1 1 260px;
+  text-align: left;
+}
+
+.social-media-icons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  flex: 0 0 auto;
+}
+
+.social-media-icons a {
+  display: inline-flex;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.socialIcon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.social-media-icons a:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.footerLogo {
+  width: 221px;
+  height: 52px;
+}
+
+
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 24px 16px 20px;
+  }
+
+  .footer-nav .nav-list {
+    gap: 8px 12px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  
+
+  .footer-content p {
+    flex: none !important;
+    width: 100%;
+     text-align: center;
+  }
+
+  .social-media-icons {
+    justify-content: center;
+  }
+
+  .footerLogo {
+    margin: 12px auto 0;
+  }
+
+  
+}
+
+@media (max-width: 480px) {
+  .footer-nav .nav-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-nav .nav-list li {
+    width: 100%;
+    justify-content: center;
+  }
+}
