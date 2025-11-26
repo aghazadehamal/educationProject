@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
+
 import PageHeader from "../../components/common/pageheader/PageHeader";
 import { FiBook, FiPlus, FiEdit, FiTrash2, FiArrowRightCircle } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
@@ -42,44 +43,46 @@ const ExamBasePage = () => {
 
   const navigate = useNavigate();
 
-  const fetchExamBases = async () => {
-    setLoading(true);
-    setError("");
+  const fetchExamBases = useCallback(async () => {
+  setLoading(true);
+  setError("");
 
-    try {
-      const data = await getExamBases({
-        title: titleFilter || undefined,
-        pageNo,
-        pageSize,
-      });
+  try {
+    const data = await getExamBases({
+      title: titleFilter || undefined,
+      pageNo,
+      pageSize,
+    });
 
-      let content = data.content || [];
+    let content = data.content || [];
 
-      if (subjectTitleFilter && subjectTitleFilter.trim().length > 0) {
-        const query = subjectTitleFilter.trim().toLowerCase();
-        content = content.filter((item) =>
-          item.subjectTitle?.toLowerCase().includes(query)
-        );
-      }
-
-      setExamBases(content);
-
-      if (subjectTitleFilter && subjectTitleFilter.trim().length > 0) {
-        setTotalPages(1);
-        setPageNo(0);
-      } else {
-        setTotalPages(data.totalPages || 0);
-      }
-    } catch (e) {
-      setError("İmtahan şablonlarını yükləmək mümkün olmadı.");
-    } finally {
-      setLoading(false);
+    if (subjectTitleFilter && subjectTitleFilter.trim().length > 0) {
+      const query = subjectTitleFilter.trim().toLowerCase();
+      content = content.filter((item) =>
+        item.subjectTitle?.toLowerCase().includes(query)
+      );
     }
-  };
 
-  useEffect(() => {
-    fetchExamBases();
-  }, [pageNo]);
+    setExamBases(content);
+
+    if (subjectTitleFilter && subjectTitleFilter.trim().length > 0) {
+      setTotalPages(1);
+      setPageNo(0);
+    } else {
+      setTotalPages(data.totalPages || 0);
+    }
+  } catch (e) {
+    setError("İmtahan şablonlarını yükləmək mümkün olmadı.");
+  } finally {
+    setLoading(false);
+  }
+}, [titleFilter, subjectTitleFilter, pageNo, pageSize]);
+
+
+ useEffect(() => {
+  fetchExamBases();
+}, [fetchExamBases]);
+
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();

@@ -1,5 +1,6 @@
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
+
 import { useNavigate } from "react-router-dom";
 import PageHeader from "../../components/common/pageheader/PageHeader";
 import {
@@ -55,31 +56,33 @@ const ExamPanelPage = () => {
   const [isCancelModalOpen, setIsCancelModalOpen] = useState(false);
   const [cancellingExam, setCancellingExam] = useState(null);
 
-  const fetchExams = async () => {
-    setLoading(true);
-    setError("");
+ const fetchExams = useCallback(async () => {
+  setLoading(true);
+  setError("");
 
-    try {
-      const data = await getExams({
-        examBaseId: examBaseIdFilter || undefined,
-        status: statusFilter || undefined,
-        createdBy: createdByFilter || undefined,
-        pageNo,
-        pageSize,
-      });
+  try {
+    const data = await getExams({
+      examBaseId: examBaseIdFilter || undefined,
+      status: statusFilter || undefined,
+      createdBy: createdByFilter || undefined,
+      pageNo,
+      pageSize,
+    });
 
-      setExams(data.content || []);
-      setTotalPages(data.totalPages || 0);
-    } catch (e) {
-      setError("İmtahanları yükləmək mümkün olmadı.");
-    } finally {
-      setLoading(false);
-    }
-  };
+    setExams(data.content || []);
+    setTotalPages(data.totalPages || 0);
+  } catch (e) {
+    setError("İmtahanları yükləmək mümkün olmadı.");
+  } finally {
+    setLoading(false);
+  }
+}, [examBaseIdFilter, statusFilter, createdByFilter, pageNo, pageSize]);
 
-  useEffect(() => {
+
+ useEffect(() => {
   fetchExams();
-}, [pageNo]);
+}, [fetchExams]);
+
 
 const handleSearchSubmit = (e) => {
   e.preventDefault();

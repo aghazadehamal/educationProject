@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
+
 import { useParams, useNavigate } from "react-router-dom";
 import PageHeader from "../../../components/common/pageheader/PageHeader";
 import { FiEdit, FiTrash2, FiArrowLeft } from "react-icons/fi";
@@ -40,29 +41,27 @@ const SubjectDetailPage = () => {
 
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [topicToDelete, setTopicToDelete] = useState(null);
+const fetchSubject = useCallback(async () => {
+  try {
+    setLoadingSubject(true);
+    setError("");
+    const raw = await getSubjectById(subjectId);
+    const data = raw?.data || raw;
+    setSubject(data);
+  } catch (err) {
+    const msg =
+      err?.response?.data?.message ||
+      err?.response?.data?.error ||
+      err.message ||
+      "Fənn yüklənərkən xəta baş verdi";
+    setError(msg);
+  } finally {
+    setLoadingSubject(false);
+  }
+}, [subjectId]);
 
-  const fetchSubject = async () => {
-    try {
-      setLoadingSubject(true);
-      setError("");
-      const raw = await getSubjectById(subjectId);
-      const data = raw?.data || raw;
-      setSubject(data);
-      console.log(data);
-      
-    } catch (err) {
-      const msg =
-        err?.response?.data?.message ||
-        err?.response?.data?.error ||
-        err.message ||
-        "Fənn yüklənərkən xəta baş verdi";
-      setError(msg);
-    } finally {
-      setLoadingSubject(false);
-    }
-  };
-
-  const fetchTopics = async (searchTerm) => {
+const fetchTopics = useCallback(
+  async (searchTerm) => {
     try {
       setLoadingTopics(true);
       setError("");
@@ -90,14 +89,18 @@ const SubjectDetailPage = () => {
     } finally {
       setLoadingTopics(false);
     }
-  };
+  },
+  [subjectId]
+);
+
 
   useEffect(() => {
-    if (!Number.isNaN(subjectId)) {
-      fetchSubject();
-      fetchTopics();
-    }
-  }, [subjectId]);
+  if (!Number.isNaN(subjectId)) {
+    fetchSubject();
+    fetchTopics();
+  }
+}, [subjectId, fetchSubject, fetchTopics]);
+
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
