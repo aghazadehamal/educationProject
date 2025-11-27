@@ -1,7 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import ProtectedRoute from "./ProtectedRoute";
 import MainLayout from "../components/layout/maninLayout/MainLayout";
 
 import RegisterPage from "../pages/Auth/register/RegisterPage";
@@ -12,7 +11,6 @@ import TeacherPanelPage from "../pages/Subjects/TeacherPanelPage";
 import LessonPanelPage from "../pages/Lessons/LessonPanelPage";
 import MyLessonsPage from "../pages/Lessons/MyLessonsPage";
 
-
 import AnalyticsPage from "../pages/Analytics/AnalyticsPage";
 import UserPanelPage from "../pages/Users/UserPanelPage";
 import MyAccountPage from "../pages/Settings/MyAccountPage";
@@ -22,7 +20,7 @@ import LoginPage from "../pages/Auth/login/LoginPage";
 import UnauthorizedPage from "../pages/Common/UnauthorizedPage";
 
 import LandingPage from "../pages/LandingPage/LandingPage";
-import StudentPanelPage from '../pages/Students/StudentPanelPage';
+import StudentPanelPage from "../pages/Students/StudentPanelPage";
 import ExamBasePage from "../pages/examBase/ExamBasePage";
 import ExamPanelPage from "../pages/exam/ExamPanelPage";
 import ExamBaseQuestionsPage from "../pages/examBase/ExamBaseQuestionsPage";
@@ -33,219 +31,140 @@ import ExamSessionPage from "../pages/exams/ExamSessionPage";
 const Router = () => {
   return (
     <Routes>
-     
-      <Route
-        path="/login"
-        element={<ProtectedRoute roles={["PUBLIC"]} element={<LoginPage />} />}
-      />
-      <Route
-        path="/register"
-        element={
-          <ProtectedRoute roles={["PUBLIC"]} element={<RegisterPage />} />
-        }
-      />
+      <Route path="/login" element={<LoginPage />} />
 
-  
+      <Route path="/register" element={<RegisterPage />} />
+
       <Route
         path="/subjects/base"
         element={
-          <ProtectedRoute
-            roles={["ADMIN", "COORDINATOR", "TEACHER"]}
-            element={
-              <MainLayout>
-                <SubjectBasePage />
-              </MainLayout>
-            }
-          />
+          <MainLayout>
+            <SubjectBasePage />
+          </MainLayout>
         }
       />
 
-    
       <Route
         path="/subjects/:id"
         element={
-          <ProtectedRoute
-            roles={["ADMIN", "COORDINATOR", "TEACHER"]}
-            element={
-              <MainLayout>
-                <SubjectDetailPage />
-              </MainLayout>
-            }
-          />
+          <MainLayout>
+            <SubjectDetailPage />
+          </MainLayout>
         }
       />
 
       <Route
         path="/subjects/teachers"
         element={
-          <ProtectedRoute
-            roles={["ADMIN", "COORDINATOR"]}
-            element={
-              <MainLayout>
-                <TeacherPanelPage />
-              </MainLayout>
-            }
-          />
+          <MainLayout>
+            <TeacherPanelPage />
+          </MainLayout>
         }
       />
 
       <Route
         path="/students"
         element={
-          <ProtectedRoute
-            roles={["ADMIN", "COORDINATOR"]}
-            element={
-              <MainLayout>
-                <StudentPanelPage />
-              </MainLayout>
-            }
-          />
+          <MainLayout>
+            <StudentPanelPage />
+          </MainLayout>
         }
       />
 
       <Route
         path="/lessons"
         element={
-          <ProtectedRoute
-            roles={["ADMIN", "COORDINATOR", "TEACHER"]}
-            element={
-              <MainLayout>
-                <LessonPanelPage />
-              </MainLayout>
-            }
-          />
+          <MainLayout>
+            <LessonPanelPage />
+          </MainLayout>
         }
       />
 
       <Route
         path="/my-lessons"
         element={
-          <ProtectedRoute
-            roles={["STUDENT"]}
-            element={
-              <MainLayout>
-                <MyLessonsPage />
-              </MainLayout>
-            }
-          />
+          <MainLayout>
+            <MyLessonsPage />
+          </MainLayout>
         }
       />
 
       <Route
         path="/exams/base"
         element={
-          <ProtectedRoute
-            roles={["ADMIN", "COORDINATOR", "TEACHER"]}
-            element={
-              <MainLayout>
-              <ExamBasePage/>
-              </MainLayout>
-            }
-          />
+          <MainLayout>
+            <ExamBasePage />
+          </MainLayout>
         }
       />
 
       <Route
         path="/exams/panel"
         element={
-          <ProtectedRoute
-            roles={["ADMIN", "COORDINATOR"]}
-            element={
-              <MainLayout>
-              <ExamPanelPage/>
-              </MainLayout>
-            }
-          />
+          <MainLayout>
+            <ExamPanelPage />
+          </MainLayout>
         }
       />
-
-    
 
       <Route
         path="/analytics"
         element={
-          <ProtectedRoute
-            roles={["ADMIN"]}
-            element={
-              <MainLayout>
-                <AnalyticsPage />
-              </MainLayout>
-            }
-          />
+          <MainLayout>
+            <AnalyticsPage />
+          </MainLayout>
         }
       />
 
       <Route
         path="/users"
         element={
-          <ProtectedRoute
-            roles={["ADMIN"]}
-            element={
-              <MainLayout>
-                <UserPanelPage />
-              </MainLayout>
-            }
-          />
+          <MainLayout>
+            <UserPanelPage />
+          </MainLayout>
         }
       />
 
       <Route
         path="/settings/account"
         element={
-          <ProtectedRoute
-            roles={["OWNER", "ADMIN", "COORDINATOR", "TEACHER", "STUDENT"]}
-            element={
-              <MainLayout>
-                <MyAccountPage />
-              </MainLayout>
-            }
-          />
+          <MainLayout>
+            <MyAccountPage />
+          </MainLayout>
         }
       />
 
       <Route
         path="/settings/addresses"
         element={
-          <ProtectedRoute
-            roles={["ADMIN"]}
-            element={
-              <MainLayout>
-                <AddressesPage />
-              </MainLayout>
-            }
-          />
+          <MainLayout>
+            <AddressesPage />
+          </MainLayout>
         }
       />
 
       <Route
         path="/settings/subscription"
         element={
-          <ProtectedRoute
-            roles={["ADMIN"]}
-            element={
-              <MainLayout>
-                <SubscriptionPage />
-              </MainLayout>
-            }
-          />
+          <MainLayout>
+            <SubscriptionPage />
+          </MainLayout>
         }
       />
 
       <Route
-  path="/exam-bases/:id/questions"
-  element={<ExamBaseQuestionsPage />}
-/>
+        path="/exam-bases/:id/questions"
+        element={<ExamBaseQuestionsPage />}
+      />
 
-<Route path="/exams/:id" element={<ExamDetailPage />} />
+      <Route path="/exams/:id" element={<ExamDetailPage />} />
 
-<Route path="/exams/my" element={<MyExamsPage />} />
-<Route path="/exam-session/:examId" element={<ExamSessionPage />} />
+      <Route path="/exams/my" element={<MyExamsPage />} />
 
-
+      <Route path="/exam-session/:examId" element={<ExamSessionPage />} />
 
       <Route path="/unauthorized" element={<UnauthorizedPage />} />
       <Route path="*" element={<LandingPage />} />
-
     </Routes>
   );
 };
