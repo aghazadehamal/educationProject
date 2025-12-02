@@ -1,0 +1,91 @@
+import React from "react";
+import styles from "./TopicFormModal.module.css";
+
+const TopicFormModal = ({
+  isOpen,
+  mode,
+  values,
+  onChange,
+  onClose,
+  onSubmit,
+  saving,
+  error,
+  subjectName,
+}) => {
+  if (!isOpen) return null;
+
+  const title =
+    mode === "create" ? "Yeni mövzu əlavə et" : "Mövzunu redaktə et";
+
+  return (
+    <div className={styles.overlay}>
+      <div className={styles.modal}>
+        <div className={styles.header}>
+          <h3 className={styles.title}>{title}</h3>
+          {subjectName && (
+            <p className={styles.subtitle}>Fənn: {subjectName}</p>
+          )}
+          <button
+            type="button"
+            className={styles.closeBtn}
+            onClick={onClose}
+            aria-label="Bağla"
+          >
+            ×
+          </button>
+        </div>
+
+        <form onSubmit={onSubmit} className={styles.form}>
+          <div className={styles.formGroup}>
+            <label className={styles.label}>Mövzu adı</label>
+            <input
+              type="text"
+              name="name"
+              value={values.name}
+              onChange={onChange}
+              className={styles.input}
+              placeholder="Mövzu adını daxil edin"
+            />
+          </div>
+
+          <div className={styles.formGroup}>
+            <label className={styles.label}>Təsvir</label>
+            <textarea
+              name="description"
+              value={values.description}
+              onChange={onChange}
+              className={styles.textarea}
+              placeholder="Mövzu haqqında qısa təsvir"
+            />
+          </div>
+
+          {error && <p className={styles.error}>{error}</p>}
+
+          <div className={styles.actions}>
+            <button
+              type="button"
+              onClick={onClose}
+              className={styles.cancelBtn}
+            >
+              Ləğv et
+            </button>
+
+            <button
+              type="submit"
+              disabled={saving}
+              className={styles.submitBtn}
+            >
+              {saving
+                ? "Yadda saxlanılır..."
+                : mode === "create"
+                ? "Əlavə et"
+                : "Yadda saxla"}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default TopicFormModal;
